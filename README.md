@@ -31,7 +31,7 @@ code/
 └── L08_Value_function_approx/ 函数逼近与 DQN 入门 Notebook
 ```
 
-其中，`Lx-topic/` 目录主要放课堂演示脚本，适合快速运行和修改；`L0x_Topic/` 目录主要放 Notebook，适合按章节阅读、运行单元格、观察图像和实验结果。
+其中，`L1-mdp-foundations/`、`L2-bellman-equation/` 这类目录主要放课堂演示脚本，适合快速运行和修改；`L01_MDP_foundations/`、`L02_Bellman_equation/` 这类目录主要放 Notebook，适合按章节阅读、运行单元格、观察图像和实验结果。
 
 ## 如何开始
 
@@ -71,8 +71,8 @@ bash setup.sh
 ## 推荐学习方式
 
 1. 先阅读每一讲目录下的 `README.md`，了解该讲对应的知识点和文件用途。
-2. 再运行 `Lx-topic/` 中的 Python 脚本，快速观察算法输出。
-3. 然后打开对应的 `L0x_Topic/` Notebook，逐格运行并修改参数。
+2. 再运行 `L1-mdp-foundations/`、`L2-bellman-equation/` 等目录中的 Python 脚本，快速观察算法输出。
+3. 然后打开对应的 `L01_MDP_foundations/`、`L02_Bellman_equation/` 等 Notebook 目录，逐格运行并修改参数。
 4. 对关键算法尝试改动奖励、折扣因子、步长、探索率或环境规模，观察价值函数、策略和收敛曲线如何变化。
 5. 最后运行 `bash run.sh test`，确认公共环境和接口仍然可用。
 
