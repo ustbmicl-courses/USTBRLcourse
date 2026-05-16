@@ -1,0 +1,50 @@
+# 教学代码依赖（按讲分级）
+# 创建 conda 环境推荐：
+#   conda create -n drlbook python=3.11
+#   conda activate drlbook
+#   pip install -r code/requirements.txt
+
+# 核心（L1-L7 表格 RL，纯 numpy）
+numpy>=1.23
+matplotlib>=3.6
+
+# 单元测试（运行 bash run.sh test）
+pytest>=7.0
+
+# 连续状态环境（L1 CartPole / L7+ Cliff Walking 等）
+gymnasium>=0.29
+
+# 深度 RL（L8-L10）
+torch>=2.0
+tensorboard>=2.10
+
+# 3D UAV 仿真栈（L8+ 后置启用；与生产环境 ArduPilot + MAVLink 对齐）
+# ───────────────────────────────────────────────────────────────────────────
+# 两层架构：
+#
+#   训练层（实验室 NVIDIA GPU 服务器）—— VMAS-style 批量并行，几百到几千架 drone
+#     Aerial Gym Simulator v2 (NTNU)；Isaac Gym 后端，需 CUDA
+#     仓库   : https://github.com/ntnu-arl/aerial_gym_simulator
+#     依赖   : isaacgym (非 pip，NVIDIA 官网手动装) + torch + rl-games
+#     Sim2Real: 官方支持 PyTorch → TFLM → C-array → 烧进 PX4/ArduPilot
+#
+#   真实层（学生本机，macOS/Linux 都行）—— 与生产飞控一致
+#     ArduPilot SITL via Docker  (官方原生 build 在 Apple Silicon 有 crash 史)
+#       docker run -p 5760:5760 -it uxduck/ardupilot-sitl-docker
+#     pymavlink                  (ArduPilot 官方维护；dronekit-python 已弃，勿用)
+#     Gazebo Harmonic            (ArduPilot 推荐的 Apple Silicon 仿真路径)
+#
+# 按需启用（取消下行注释）：
+# pymavlink>=2.4              # MAVLink 协议 Python 绑定
+# stable-baselines3>=2.0      # L8-L10 deep RL baseline（policy 训练 / 部署）
+
+# RLHF（L11，按需安装）
+# transformers>=4.40
+# trl>=0.8
+# datasets>=2.14
+
+# Offline RL（L13，按需安装）
+# d3rlpy>=2.4
+
+# MARL（L12，按需安装）
+# pettingzoo>=1.24
